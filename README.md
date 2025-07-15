@@ -12,7 +12,7 @@
       -c CLUSTER_FILE, --cluster_file CLUSTER_FILE
                             Input crystal waters to analyse
       -d DIST, --dist DIST  Input distance from ligand to analyse (if no crystal
-                            waters specified)
+                            waters specified). Default = 5
       -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
                             Output prefix
     
@@ -42,3 +42,15 @@ Run bash script as follows
 ```
 sh ./test_hsa.sh
 ```
+Reference summary of HSA results provided for comparison. HSA will also write a folder of more detailed results for deeper analysis.
+## Known list of issues
+- bad_arrray_new_length: No waters found around specified cluster
+    - Check distance of waters in cluster file to ligand file: should be less than distance specified in -d flag
+    - There may be no waters in specified cluster centre. Check trajectory file accordingly
+ 
+- Segmentation fault: numpy might need to be downgraded. Latest supported version is 1.17
+
+- Index out of range: Might occur if specifying 1 cluster only.
+
+- Crystal waters go crazy in periodic box: Check original PDB file if there are waters found in between protein and ligand. Move to the end of the PDB file before rurnning MD
+    - Side note: Restraints should be implemented on heavy atoms of protein during MD.
