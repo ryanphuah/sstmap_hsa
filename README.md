@@ -45,7 +45,7 @@ Pointers to note for input files:
 - Restraints should be implemented on heavy atoms of protein during MD to generate trajectory file
 - PDB file used to run MD should have waters at the end of the file
 - Distance of all waters indicated in cluster file to the ligand should be less than distance indicated by distance flag
-- Output prefix needs to be changed every run to prevent overriding of files
+- Output prefix needs to be changed every run to prevent potential overwriting of files
 
 ## Running test system 
 Download trajectory from following link into working directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
