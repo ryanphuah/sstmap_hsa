@@ -12,7 +12,7 @@
       -c CLUSTER_FILE, --cluster_file CLUSTER_FILE
                             Input crystal waters to analyse
       -d DIST, --dist DIST  Input distance from ligand to analyse (if no crystal
-                            waters specified). Default = 5
+                            waters specified). Default = 10
       -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
                             Output prefix
     
@@ -35,6 +35,18 @@ conda config --add channels omnia
 conda config --add channels solvationtools
 conda install sstmap
 ```
+## Running SSTMap
+Required input files:
+- Amber parameter file (.prmtop)
+- Trajectory file (.dcd)
+- Ligand file (.pdb)
+
+Pointers to note for input files:
+- Restraints should be implemented on heavy atoms of protein during MD to generate trajectory file
+- PDB file used to run MD should have waters at the end of the file
+- Distance of all waters indicated in cluster file to the ligand should be less than distance indicated by distance flag
+- Output prefix needs to be changed every run to prevent overriding of files
+
 ## Running test system 
 Download trajectory from following link into working directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
 
@@ -49,8 +61,6 @@ Reference summary of HSA results provided for comparison. HSA will also write a 
     - There may be no waters in specified cluster centre. Check trajectory file accordingly
  
 - Segmentation fault: numpy might need to be downgraded. Latest supported version is 1.17
-
-- Output prefix needs to be changed every run to prevent overriding of files
 
 - Index out of range: Might occur if specifying 1 cluster only.
 
