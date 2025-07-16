@@ -50,6 +50,8 @@ Reference summary of HSA results provided for comparison. HSA will also write a 
  
 - Segmentation fault: numpy might need to be downgraded. Latest supported version is 1.17
 
+- Output prefix needs to be changed every run to prevent overriding of files
+
 - Index out of range: Might occur if specifying 1 cluster only.
 
 - Crystal waters go crazy in periodic box: Check original PDB file if there are waters found in between protein and ligand. Move to the end of the PDB file before rurnning MD
