@@ -48,6 +48,11 @@ Pointers to note for input files:
 - dH component is calculated with respect to TIP3P water bulk energy. dH and dG values of different water models would need to be adjusted accordingly 
 - Output prefix needs to be changed every run to prevent potential overwriting of files
 
+## Post SSTMap HSA analysis
+Probability of water beinng conserved and displaced is calculated based on Bayes' formula, with terms trained on SZMap dataset. Classification of conserved/displaced is done based on comparison of probability. Further classification of conserved into stable/potential replace is done based on a magic cutoff value for dH of -2.5. dH values more negative than -2.5 are stable.
+
+Note: SZMap dataset is relatively small, hence generalisability of this classifier may be limited.
+
 ## Running test system 
 Download trajectory from following link into working directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
 
