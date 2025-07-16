@@ -49,7 +49,9 @@ Pointers to note for input files:
 - Output prefix needs to be changed every run to prevent potential overwriting of files
 
 ## Post SSTMap HSA analysis
-Probability of water beinng conserved and displaced is calculated based on Bayes' formula, with terms trained on SZMap dataset. Classification of conserved/displaced is done based on comparison of probability. Further classification of conserved into stable/potential replace is done based on a magic cutoff value for dH of -2.5. dH values more negative than -2.5 are stable.
+Probability of water beinng conserved and displaced is calculated based on Bayes' formula, with terms trained on SZMap dataset. Classification of conserved/displaced is done based on comparison of probability. 
+
+Further determination of replaceable waters from conserved waters is done based on a magic cutoff value for dH of -2.5. dH values more negative than -2.5 are stable.
 
 Note: SZMap dataset is relatively small, hence generalisability of this classifier may be limited.
 
