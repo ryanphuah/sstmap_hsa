@@ -43,7 +43,7 @@ Required input files:
 
 Pointers to note for input files:
 - Restraints should be implemented on heavy atoms of protein during MD to generate trajectory file
-- PDB file used to run MD should have waters at the end of the file
+- PDB file used to run MD should have waters at the end of the file/waters added separately into Modeller
 - Distance of all waters indicated in cluster file to the ligand should be less than distance indicated by distance flag
 - dH component is calculated with respect to TIP3P water bulk energy. dH and dG values of different water models would need to be adjusted accordingly 
 - Output prefix needs to be changed every run to prevent potential overwriting of files
