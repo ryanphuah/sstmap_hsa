@@ -2,10 +2,11 @@
 <details>
 <summary><b>Help documentation</b> </summary>
 
-    usage: hsa.py [-h] -p PARM_FILE -t TRAJ_FILE -l LIG_FILE -f NUM_FRAMES
-              [-c CLUSTER_FILE] [-d DIST] -o OUTPUT_PREFIX
-    
-    HSA Analysis of waters (TIP3P model) in protein pocket
+    usage: hsa.py [-h] -p PARM_FILE -t TRAJ_FILE -l LIG_FILE -f NUM_FRAMES -w
+              WATER_MODEL -s START_FRAME [-c CLUSTER_FILE] [-d DIST] -o
+              OUTPUT_PREFIX
+
+    HSA Analysis of waters in protein pocket
     
     optional arguments:
       -h, --help            show this help message and exit
@@ -13,8 +14,6 @@
                             Input crystal waters to analyse
       -d DIST, --dist DIST  Input distance from ligand to analyse (if no crystal
                             waters specified). Default = 10
-      -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
-                            Output prefix
     
     required arguments:
       -p PARM_FILE, --parm_file PARM_FILE
@@ -24,7 +23,14 @@
       -l LIG_FILE, --lig_file LIG_FILE
                             Input ligand file (PDB)
       -f NUM_FRAMES, --num_frames NUM_FRAMES
-                            Input number of frames
+                            Total number of frames to process
+      -w WATER_MODEL, --water_model WATER_MODEL
+                            Water model used. Supported models are: TIP3P,
+                            TIP4PEW, TIP4P, TIP5P, TIP3PFW, SPCE, SPCFW
+      -s START_FRAME, --start_frame START_FRAME
+                            Starting frame
+      -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
+                            Output prefix
 
 </details>
 
