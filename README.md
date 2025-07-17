@@ -56,7 +56,7 @@ Further determination of replaceable waters from conserved waters is done based 
 Note: SZMap dataset is relatively small, hence generalisability of this classifier may be limited.
 
 ## Running test system 
-Download trajectory from following link into working directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
+Download trajectory from following link into test directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
 
 Run bash script as follows
 ```
