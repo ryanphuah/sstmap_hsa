@@ -95,7 +95,7 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,st
 
 
 def main():
-    parser= argparse.ArgumentParser(description='HSA Analysis of waters (TIP3P model) in protein pocket')
+    parser= argparse.ArgumentParser(description='HSA Analysis of waters in protein pocket')
     required = parser.add_argument_group('required arguments')
     required.add_argument('-p','--parm_file',help='Input parameter file', required=True)
     required.add_argument('-t','--traj_file',help='Input trajectory file',required=True)
