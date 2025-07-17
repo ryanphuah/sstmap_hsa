@@ -48,6 +48,13 @@ Pointers to note for input files:
 - dH component is calculated with respect to TIP3P water bulk energy. dH and dG values of different water models would need to be adjusted accordingly 
 - Output prefix needs to be changed every run to prevent potential overwriting of files
 
+## HSA Outputs
+In depth explanations of all output columns from HSA can be found at this link: http://sstmap.org/2017/05/09/undestanding-output/
+
+Briefly, dH is calculated from the Etot column relative to bulk energy of the water model used. dG is then calculate from dH - TStot. Note that water bulk entropy is taken as 0.
+
+Other interesting outputs from HSA include occupancy, number of hydrogen bonds as well as residues that form hydrogen bonds to each water. A PDB file of the probable configurations of waters in each cluster is also output.
+
 ## Post SSTMap HSA analysis
 Probability of water beinng conserved and displaced is calculated based on Bayes' formula, with terms trained on SZMap dataset. Classification of conserved/displaced is done based on comparison of probability. 
 
