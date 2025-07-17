@@ -34,8 +34,8 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,cluster_file=N
         rawhsa['dH']=rawhsa['Etot']+9.53
         rawhsa['dG']=rawhsa['Etot']-rawhsa['TStot']+9.53
     category=[]
-    probc=pd.DataFrame(columns=['Prob Conserved'])
-    probd=pd.DataFrame(columns=['Prob Displaced'])
+    probc=pd.DataFrame(columns=['Prob_Conserved'])
+    probd=pd.DataFrame(columns=['Prob_Displaced'])
 
     # Trained Bayes classifier from SZMap paper
     with open('displaced_kde.pkl','rb') as f: displaced_kde=pl.load(f)
