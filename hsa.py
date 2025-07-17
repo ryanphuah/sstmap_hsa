@@ -9,7 +9,17 @@ import scipy
 import pickle as pl
 import csv
 
-def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,cluster_file=None,dist=10):
+watermodels={
+    'TIP3P':-9.533,
+    'TIP4PEW':-11.036,
+    'TIP4P':-9.856,
+    'TIP5P':-9.596,
+    'TIP3PFW':-11.369,
+    'SPCE':-11.123,
+    'SPCFW':-11.876
+}
+
+def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,start_frame,cluster_file=None,dist=1):
     # Check for clashing file names in cwd
     if os.path.isdir('SSTMap_HSA_'+output_prefix): 
         print('Error, directory already exists. Please change output prefix')
@@ -17,9 +27,9 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,cluster_file=N
 
     # Run HSA
     if cluster_file:
-        result=subprocess.run("run_hsa -i "+parm_file+" -t "+traj_file+" -l "+lig_file+" -f "+num_frames+" -d "+dist+" -c "+cluster_file+" -o "+output_prefix,shell=True)
+        result=subprocess.run("run_hsa -i "+parm_file+" -t "+traj_file+" -l "+lig_file+" -f "+num_frames+" -d "+dist+" -c "+cluster_file+" -s "+start_frame+" -o "+output_prefix,shell=True)
     else: 
-        result=subprocess.run("run_hsa -i "+parm_file+" -t "+traj_file+" -l "+lig_file+" -f "+num_frames+" -d "+dist+" -o "+output_prefix,shell=True)
+        result=subprocess.run("run_hsa -i "+parm_file+" -t "+traj_file+" -l "+lig_file+" -f "+num_frames+" -d "+dist+" -s "+start_frame+" -o "+output_prefix,shell=True)
     if result.returncode != 0:
         print("Error running HSA:")
         print(result.stderr)
@@ -29,10 +39,11 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,cluster_file=N
 
     # Post HSA analysis
     # Classifying based on entropy/enthalpy
+    Eww=watermodels[water_model]
     with open('SSTMap_HSA_'+output_prefix+'/'+output_prefix+'_hsa_summary.txt', 'r') as f:
         rawhsa=pd.read_csv(f, sep=" ")
-        rawhsa['dH']=rawhsa['Etot']+9.53
-        rawhsa['dG']=rawhsa['Etot']-rawhsa['TStot']+9.53
+        rawhsa['dH']=rawhsa['Etot']-Eww
+        rawhsa['dG']=rawhsa['Etot']-rawhsa['TStot']-Eww
     category=[]
     probc=pd.DataFrame(columns=['Prob_Conserved'])
     probd=pd.DataFrame(columns=['Prob_Displaced'])
@@ -89,10 +100,12 @@ def main():
     required.add_argument('-p','--parm_file',help='Input parameter file', required=True)
     required.add_argument('-t','--traj_file',help='Input trajectory file',required=True)
     required.add_argument('-l','--lig_file',help='Input ligand file (PDB)',required=True)
-    required.add_argument('-f','--num_frames',help='Input number of frames',required=True,type=str)
+    required.add_argument('-f','--num_frames',help='Total number of frames to process',required=True,type=str)
+    required.add_argument('-w','--water_model',help='Water model used. Supported models are: TIP3P, TIP4PEW, TIP4P, TIP5P, TIP3PFW, SPCE, SPCFW',required=True)
+    required.add_argument('-s','--start_frame',help='Starting frame',type=str,required=True)
     parser.add_argument('-c','--cluster_file',help='Input crystal waters to analyse',default=None)
     parser.add_argument('-d','--dist',help='Input distance from ligand to analyse (if no crystal waters specified). Default = 10',default=10)
-    parser.add_argument('-o','--output_prefix',help='Output prefix',required=True)
+    required.add_argument('-o','--output_prefix',help='Output prefix',required=True)
     args = parser.parse_args()
     hsa(**vars(args))
 
