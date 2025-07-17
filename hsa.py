@@ -78,7 +78,7 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,cluster_file=N
         hsa_results=rawhsa[['ResID','x','y','z','occupancy','dH','TStot','dG','Conserved_Probability','Displaced_Probability','HSA_Category']]
         hsa_results.to_csv(output_prefix+'_HSA_results.txt',index=True, sep=' ',quoting=csv.QUOTE_NONE)
     else: 
-        hsa_results=rawhsa[['x','y','z','occupancy','dH','TStot','dG','Conserved Probability','Displaced Probability','HSA Category']]
+        hsa_results=rawhsa[['x','y','z','occupancy','dH','TStot','dG','Conserved_Probability','Displaced_Probability','HSA_Category']]
         hsa_results.to_csv(output_prefix+'_HSA_results.txt', index=True,sep=' ',quoting=csv.QUOTE_NONE)
 
 
