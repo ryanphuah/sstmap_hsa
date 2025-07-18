@@ -77,11 +77,10 @@ sh ./test_hsa.sh
 ```
 Reference summary of HSA results provided for comparison. HSA will also write a folder of more detailed results for deeper analysis.
 ## Known list of issues
-- bad_arrray_new_length: No waters found around specified cluster
+- bad_arrray_new_length/Segmentation fault (core dumped)/Aborted (core dumped)
     - Check distance of waters in cluster file to ligand file: should be less than distance specified in -d flag
-    - There may be no waters in specified cluster centre. Check trajectory file accordingly
- 
-- Segmentation fault: numpy might need to be downgraded. Latest supported version is 1.17
+    - There may be no waters in specified cluster centre. Check trajectory file accordingly (especially if periodic box was used for MD, may need to autoimage using cpptraj first)
+    - Numpy might need to be downgraded. Latest supported version is 1.17
 
 - Index out of range: Might occur if specifying 1 cluster only.
 
