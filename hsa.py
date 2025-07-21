@@ -19,7 +19,7 @@ watermodels={
     'SPCFW':-11.876
 }
 
-def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,start_frame,cluster_file=None,dist=1):
+def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,start_frame,cluster_file=None,dist=10):
     # Check for clashing file names in cwd
     if os.path.isdir('SSTMap_HSA_'+output_prefix): 
         print('Error, directory already exists. Please change output prefix')
