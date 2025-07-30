@@ -1,0 +1,26 @@
+Input files,,
+Directory Name,,
+,File name,Note
+test,,
+,“target”_protein_crystalwat_init_5ns.prmtop,Input AMBER parameter file
+,“target”_5ns_autoimaged.dcd,Input trajectory file. Note that this file is uploaded on the google drive link provided in README and should be downloaded into test directory
+,“target”_ligand_lastframaligned.pdb,Input ligand PDB file
+,“target”_paperwats.pdb,"Input cluster centers (crystal water coordinates), optional input"
+,conserved_kde.pkl,Trained Bayes’ classification models based on SZMap benchmarking
+,displaced_kde.pkl,
+,“target”_HSA_results_reference.txt,Reference summary output results from HSA script
+,,
+Output files,,
+(Sub)directory Name,,
+,File name,Note
+SSTMap_HSA_”target”,,
+,hsa_hsa_data,Raw data from HSA calculations
+,trans.dat,Translational entropy values for each cluster
+,orient.dat,Orientational entropy values for each cluster
+,probable_configs.pdb,Most likely water configurations (hydrogens included)
+,“target”_hsa_summary.txt,Summary of calculated HSA values. More information about individual columns can be found in the link provided in README
+,cluster.”clusternumber”.pdb,PDB file containing individual cluster coordinates
+,clustercenterfile.pdb,PDB file containing all clusters (should match file indicated in -c flag if any)
+,,
+test,,
+,“target”_HSA_results.txt,Summary of important HSA values. Includes probability calculations and conserved/displaced classification
