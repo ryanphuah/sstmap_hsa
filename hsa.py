@@ -87,10 +87,10 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,st
             paperwats=paperwats.reset_index()
         rawhsa['ResID']=paperwats['resseq']
         hsa_results=rawhsa[['ResID','x','y','z','occupancy','dH','TStot','dG','Conserved_Probability','Displaced_Probability','HSA_Category']]
-        hsa_results.to_csv(output_prefix+'_HSA_results.txt',index=True, sep=' ',quoting=csv.QUOTE_NONE)
+        hsa_results.to_csv(output_prefix+'_HSA_results.txt',index=True, sep=' ',quoting=csv.QUOTE_NONE,escapechar='\\')
     else: 
         hsa_results=rawhsa[['x','y','z','occupancy','dH','TStot','dG','Conserved_Probability','Displaced_Probability','HSA_Category']]
-        hsa_results.to_csv(output_prefix+'_HSA_results.txt', index=True,sep=' ',quoting=csv.QUOTE_NONE)
+        hsa_results.to_csv(output_prefix+'_HSA_results.txt', index=True,sep=' ',quoting=csv.QUOTE_NONE,escapechar='\\')
 
 
 
