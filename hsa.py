@@ -52,8 +52,8 @@ def hsa(parm_file,traj_file,lig_file,num_frames:str,output_prefix,water_model,st
     with open('displaced_kde.pkl','rb') as f: displaced_kde=pl.load(f)
     with open('conserved_kde.pkl','rb') as f: conserved_kde=pl.load(f)
     def prob(wat):
-        d=36/54
-        c=18/54
+        d=31/54
+        c=23/54
         xd=displaced_kde.pdf(wat)
         xc=conserved_kde.pdf(wat)
         x=xd*d+xc*c
