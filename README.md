@@ -41,6 +41,15 @@ conda config --add channels omnia
 conda config --add channels solvationtools
 conda install sstmap
 ```
+## Running MD
+The specs of the MD used to generate the provided trajectories are as follows:
+- Complexes were first prepped according to this paper: https://pubs.acs.org/doi/suppl/10.1021/ja066980q/suppl_file/ja066980qsi20061124_013948.pdf
+- Ligands were parameterized with Espaloma, AMBER ff14SB and TIP3P force fields were used for proteins and waters
+- Crystal waters were added to modeller separately from protein and ligand
+- Harmonic restraints of 1000 kJ/mol/nm<sup>2</sup> was applied on all protein heavy atoms
+- Monte Carlo Barostat was used to maintain pressure and temperature at 1 bar and 300K respectively
+- Langevin integrator was used with a friction coefficient of 2 ps<sup>-1</sup> and a step size of 1 femtosecond. Frames were saved every 1000 steps, giving a 5ns simulation with 5000 frames.
+  
 ## Running SSTMap
 Required input files:
 - Amber parameter file (.prmtop)
@@ -70,14 +79,6 @@ Note: SZMap dataset is relatively small, hence generalisability of this classifi
 
 ## Running test system 
 Download trajectory from following link into test directory: https://drive.google.com/drive/folders/1dXeWMGwhTl2kC8hOqZBqS2nk2HEoQvNY?usp=drive_link
-
-The specs of the MD used to generate the trajectories found above are as follows:
-- Complexes were first prepped according to this paper: https://pubs.acs.org/doi/suppl/10.1021/ja066980q/suppl_file/ja066980qsi20061124_013948.pdf
-- Ligands were parameterized with Espaloma, AMBER ff14SB and TIP3P force fields were used for proteins and waters
-- Crystal waters were added to modeller separately from protein and ligand
-- Harmonic restraints of 1000 kJ/mol/nm<sup>2</sup> was applied on all protein heavy atoms
-- Monte Carlo Barostat was used to maintain pressure and temperature at 1 bar and 300K respectively
-- Langevin integrator was used with a friction coefficient of 2 ps<sup>-1</sup> and a step size of 1 femtosecond. Frames were saved every 1000 steps, giving a 5ns simulation with 5000 frames.
 
 Run bash script as follows
 ```
