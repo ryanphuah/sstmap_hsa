@@ -48,7 +48,8 @@ The specs of the MD used to generate the provided trajectories are as follows:
 - Crystal waters were added to modeller separately from protein and ligand
 - Harmonic restraints of 1000 kJ/mol/nm<sup>2</sup> was applied on all protein heavy atoms
 - Monte Carlo Barostat was used to maintain pressure and temperature at 1 bar and 300K respectively
-- Langevin integrator was used with a friction coefficient of 2 ps<sup>-1</sup> and a step size of 1 femtosecond. Frames were saved every 1000 steps, giving a 5ns simulation with 5000 frames.
+- Langevin integrator was used with a friction coefficient of 2 ps<sup>-1</sup> and a step size of 1 femtosecond. Frames were saved every 1000 steps, giving a 5ns simulation with 5000 frames
+- Cpptraj autoimage was used to center the trajectory on the complex
   
 ## Running SSTMap
 Required input files:
