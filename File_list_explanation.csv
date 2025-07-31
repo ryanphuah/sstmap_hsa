@@ -24,3 +24,4 @@ SSTMap_HSA_”target”,,
 ,,
 test,,
 ,“target”_HSA_results.txt,Summary of important HSA values. Includes probability calculations and conserved/displaced classification
+,“target”_predictedwaters_reference.pdb,Reference positions of predicted water molecules for 1f0s. Should be compared against clustercenterfile in  the output SSTMap_HSA_1f0s directory
