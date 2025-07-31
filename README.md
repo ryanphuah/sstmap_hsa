@@ -85,7 +85,9 @@ Run bash script as follows
 ```
 sh ./test_hsa.sh
 ```
-Reference summary of HSA results provided for comparison. HSA will also write a folder of more detailed results for deeper analysis.
+3 test systems (1h0s, 5std and 2qwj) focuses on thermodynamic calculations of crystal waters. Thus they are run with -c flags to indicate crystal water positions. 1 test system (1f0s) focuses on water placement, hence -c flag was not indicated.
+
+Reference summary of HSA results (for 1h0s, 5std and 2qwj) and predicted water positions (for 1f0s) are provided for comparison. HSA will also write a folder of more detailed results for deeper analysis.
 ## Known list of issues
 - bad_arrray_new_length/Segmentation fault (core dumped)/Aborted (core dumped)
     - Check distance of waters in cluster file to ligand file: should be less than distance specified in -d flag
